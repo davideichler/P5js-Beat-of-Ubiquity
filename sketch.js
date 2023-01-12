@@ -1,4 +1,3 @@
-
 var breg;
 var brendArp;
 var brendBass;
@@ -9,106 +8,122 @@ var linach;
 var tanne;
 var brendVisual;
 
+let stopAudio;
+let yPos = 0;
+
 /* var ampBreg;
 var volHistoryBreg = []; */
 var env;
 
 function preload() {
-  breg = loadSound ("BREG_V2.wav", loaded);
-  brendArp = loadSound ("BREND_ARP_V1.wav", loaded);
-  brendBass = loadSound ("BREND_BASS_V1.wav", loaded);
-  eis = loadSound ("EIS_V1.wav", loaded);
-  felsen = loadSound ("FELSEN_SNARE_V1.wav", loaded);
-  kapelle = loadSound ("KAPELLE_V1.wav", loaded);
-  linach = loadSound ("LINACHTALSPERRE_V1.wav", loaded);
-  tanne = loadSound ("TANNE_KICK_V1.wav", loaded);
+  breg = loadSound("BREG_V2.wav");
+  brendArp = loadSound("BREND_ARP_V1.wav");
+  brendBass = loadSound("BREND_BASS_V1.wav");
+  eis = loadSound("EIS_V1.wav");
+  felsen = loadSound("FELSEN_SNARE_V1.wav");
+  kapelle = loadSound("KAPELLE_V1.wav");
+  linach = loadSound("LINACHTALSPERRE_V1.wav");
+  tanne = loadSound("TANNE_KICK_V1.wav");
 
-  brendVisual = loadImage ("Brend.png", loaded);
-  linachVisual = loadImage ("Linachtalsperre.png", loaded);
-  kapelleVisual = loadImage ("Kapelle.png", loaded);
-  tanneVisual = loadImage ("tintenbaum.png", loaded);
+  brendVisual = loadImage("Brend.png");
+  linachVisual = loadImage("Linachtalsperre.png");
+  kapelleVisual = loadImage("Kapelle.png");
+  tanneVisual = loadImage("tintenbaum.png");
 }
 
-function loaded() {
-  keyTyped();
-  //keyReleased();
+function keyReleased() {
+  switch (keyCode) {
+    case 65:
+      fadeAudio(breg);
+      break;
+    case 83:
+      fadeAudio(brendArp);
+      break;
+    case 68:
+      fadeAudio(brendBass);
+      break;
+    case 70:
+      fadeAudio(eis);
+      break;
+    case 71:
+      fadeAudio(felsen);
+      break;
+    case 72:
+      fadeAudio(kapelle);
+      break;
+    case 74:
+      fadeAudio(linach);
+      break;
+    case 75:
+      fadeAudio(tanne);
+      break;
+  }
 }
-
 
 function keyTyped() {
-  console.log(keyCode);
-  /* let bregChk = key (65);
-  if (bregChk == true) {
-    breg.play();
-  } breg.stop(); */
-  
-  //console.log(bregChk);
 
-  if(keyCode == 65) {
-    breg.play();
+  switch (keyCode) {
+    case 65:
+      playAudio(breg);
+      break;
+    case 83:
+      playAudio(brendArp);
+      break;
+    case 68:
+      playAudio(brendBass);
+      drawImage(brendVisual);
+      break;
+    case 70:
+      playAudio(eis);
+      break;
+    case 71:
+      playAudio(felsen);
+      break;
+    case 72:
+      playAudio(kapelle);
+      break;
+    case 74:
+      playAudio(linach);
+      break;
+    case 75:
+      playAudio(tanne);
+      break;
   }
-  if(keyCode == 83) {
-    brendArp.play();
-  }
-  if(keyCode == 68) {
-    brendBass.play();
-  }
-  if(keyCode == 70) {
-    eis.play();
-  }
-  if(keyCode == 71) {
-    felsen.play();
-  }
-  if(keyCode == 72) {
-    kapelle.play();
-  }
-  if(keyCode == 74) {
-    linach.play();
-  }
-  if(keyCode == 75) {
-    tanne.play();
-  }
-
-  if(keyCode != 65) {
-    breg.stop();
-  }
-  if(keyCode != 83) {
-    brendArp.stop();
-  }
-  if(keyCode != 68) {
-    brendBass.stop();
-  }
-  if(keyCode != 70) {
-    eis.stop();
-  }
-  if(keyCode != 71) {
-    felsen.stop();
-  }
-  if(keyCode != 72) {
-    kapelle.stop();
-  }
-  if(keyCode != 74) {
-    linach.stop();
-  }
-  if(keyCode != 75) {
-    tanne.stop();
-  } 
-
 };
+
+function playAudio(_audio) {
+  clearTimeout(stopAudio);
+  _audio.stop();
+  _audio.setVolume(1);
+  _audio.play();
+}
+
+function fadeAudio(_audio) {
+  _audio.setVolume(0, 0.4);
+  stopAudio = setTimeout(function () { _audio.stop(); }, 400);
+}
 
 function setup() {
   createCanvas(640, 480);
-  amp = new p5.Amplitude()
-  
+  //amp = new p5.Amplitude()
 }
 
+function drawImage(_image) {
+  // console.log("image drawn");
+  // image(_image, 10, 10);
+}
 
 function draw() {
   background(220);
-  image(brendVisual, 10, 10, 248, 350);
-  image(kapelleVisual, 300, 10, 350, 248);
-  image(linachVisual, 270, 250, 350, 248);
-  image(tanneVisual, 220, 70, 248, 351);
+  yPos = yPos - 1;
+  if (yPos < 0) {
+    yPos = height-350;
+  }
+  image(brendVisual, 10, yPos, 248, 350);
+  // image(kapelleVisual, 300, 10, 350, 248);
+  // image(linachVisual, 270, 250, 350, 248);
+  // image(tanneVisual, 220, 70, 248, 351);
+
   /* var vol = ampBreg.getLevel();
   volHistoryBreg.push(vol);
   stroke(255);
@@ -116,6 +131,6 @@ function draw() {
     var y = map(volHistoryBreg[index], 0, 1, height, 0)
     point(index, volHistoryBreg[index]);
   } */
-  
+
 }
 
