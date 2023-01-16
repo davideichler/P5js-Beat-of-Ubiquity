@@ -7,6 +7,17 @@ var kapelle;
 var linach;
 var tanne;
 var brendVisual;
+var brendGif1;
+var brendGif2
+var brendGif3
+var felsenGif;
+var kapelleGif1;
+var kapelleGif2;
+var kapelleGif3;
+var linachGif1;
+var linachGif2;
+var tanneGif1;
+var tanneGif2;  
 
 let stopAudio;
 let yPos = 0;
@@ -26,9 +37,18 @@ function preload() {
   tanne = loadSound("TANNE_KICK_V1.wav");
 
   brendVisual = loadImage("Brend.png");
-  linachVisual = loadImage("Linachtalsperre.png");
-  kapelleVisual = loadImage("Kapelle.png");
-  tanneVisual = loadImage("tintenbaum.png");
+  brendGif1 = loadImage("/GIFS/Brend1Cut.gif");
+  brendGif2 = loadImage("/GIFS/Brend2Cut.gif");
+  brendGif3 = loadImage("/GIFS/Brend3Cut.gif");
+  felsenGif = loadImage("/GIFS/Felsen3.gif");
+  kapelleGif1 = loadImage("/GIFS/Kapelle1Cut.gif");
+  kapelleGif2 = loadImage("/GIFS/Kapelle2Cut.gif")
+  kapelleGif3 = loadImage("/GIFS/Kapelle3Cut.gif")
+  kapelleGif3 = loadImage("/GIFS/Kapelle3Cut.gif");
+  linachGif1 = loadImage("/GIFS/Linach1Cut.gif");
+  linachGif2 = loadImage("/GIFS/Linach2Cut.gif");
+  tanneGif1 = loadImage("/GIFS/Tanne1Cut.gif");
+  tanneGif2 = loadImage("/GIFS/Tanne2Cut.gif");
 }
 
 function keyReleased() {
@@ -104,7 +124,8 @@ function fadeAudio(_audio) {
 }
 
 function setup() {
-  createCanvas(640, 480);
+  //createCanvas(640, 480);
+  createCanvas(1280, 720);
   //amp = new p5.Amplitude()
 }
 
@@ -114,12 +135,21 @@ function drawImage(_image) {
 }
 
 function draw() {
-  background(220);
-  yPos = yPos - 1;
-  if (yPos < 0) {
-    yPos = height-350;
-  }
-  image(brendVisual, 10, yPos, 248, 350);
+  background(0);
+  // yPos = yPos - 1; 
+  // if (yPos < 0) {
+  //   yPos = height;
+  // }
+  // image(brendVisual, 10, yPos, 248, 350);
+
+  image(brendGif3, 100, 10);
+  image(kapelleGif3, 500, 10);
+  image(kapelleGif2, 300, 400);
+  image(linachGif1, 800, 10);
+  image(tanneGif1, 100, 400);
+  image(felsenGif, 600, 330);
+  
+
   // image(kapelleVisual, 300, 10, 350, 248);
   // image(linachVisual, 270, 250, 350, 248);
   // image(tanneVisual, 220, 70, 248, 351);
