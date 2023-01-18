@@ -22,6 +22,14 @@ var tanneGif2;
 let stopAudio;
 let yPos = 0;
 
+let bregPressed = false;
+let brendPressed = false;
+let kapellePressed = false;
+let felsenPressed = false;
+let linachPressed = false;
+let tannePressed = false;
+let eisPressed = false;
+
 /* var ampBreg;
 var volHistoryBreg = []; */
 var env;
@@ -55,27 +63,35 @@ function keyReleased() {
   switch (keyCode) {
     case 65:
       fadeAudio(breg);
+      bregPressed = false;
       break;
     case 83:
       fadeAudio(brendArp);
+      brendPressed = false;
       break;
     case 68:
       fadeAudio(brendBass);
+      brendPressed = false;
       break;
     case 70:
       fadeAudio(eis);
+      eisPressed = false;
       break;
     case 71:
       fadeAudio(felsen);
+      felsenPressed = false;
       break;
     case 72:
       fadeAudio(kapelle);
+      kapellePressed = false;
       break;
     case 74:
       fadeAudio(linach);
+      linachPressed = false;
       break;
     case 75:
       fadeAudio(tanne);
+      tannePressed = false;
       break;
   }
 }
@@ -85,28 +101,35 @@ function keyTyped() {
   switch (keyCode) {
     case 65:
       playAudio(breg);
+      bregPressed = true;
       break;
     case 83:
       playAudio(brendArp);
+      brendPressed = true;
       break;
     case 68:
       playAudio(brendBass);
-      drawImage(brendVisual);
+      brendPressed = true;
       break;
     case 70:
       playAudio(eis);
+      eisPressed = true;
       break;
     case 71:
       playAudio(felsen);
+      felsenPressed = true;
       break;
     case 72:
       playAudio(kapelle);
+      kapellePressed = true;
       break;
     case 74:
       playAudio(linach);
+      linachPressed = true;
       break;
     case 75:
       playAudio(tanne);
+      tannePressed = true;
       break;
   }
 };
@@ -136,18 +159,42 @@ function drawImage(_image) {
 
 function draw() {
   background(0);
-  // yPos = yPos - 1; 
+  
+  if (brendPressed == true) {
+    image(brendGif3, 490, 44, 300, 632);
+  }
+
+  if (kapellePressed == true) {
+    //image(kapelleGif2, 247, 6, 786, 768);
+    image(kapelleGif1, 0, 0, 1280, 720)
+  }
+
+  if (linachPressed == true) {
+    image(linachGif1, 65, 70, 1170, 570);
+  }
+
+  if (felsenPressed == true) {
+    image(felsenGif, 0, 4, 1280, 716)
+  }
+
+  if (tannePressed == true) {
+    image(tanneGif1, 382.5, 5, 515, 710)
+  }
+ 
+// yPos = yPos - 1; 
   // if (yPos < 0) {
   //   yPos = height;
   // }
   // image(brendVisual, 10, yPos, 248, 350);
 
-  image(brendGif3, 100, 10);
-  image(kapelleGif3, 500, 10);
-  image(kapelleGif2, 300, 400);
-  image(linachGif1, 800, 10);
-  image(tanneGif1, 100, 400);
-  image(felsenGif, 600, 330);
+
+  
+
+  // image(kapelleGif3, 500, 10);
+  // image(kapelleGif2, 300, 400);
+  // image(linachGif1, 800, 10);
+  // image(tanneGif1, 100, 400);
+  // image(felsenGif, 600, 330);
   
 
   // image(kapelleVisual, 300, 10, 350, 248);
