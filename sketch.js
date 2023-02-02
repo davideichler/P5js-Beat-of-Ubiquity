@@ -13,20 +13,10 @@ var eisMoshed;
 var felsenMoshed;
 var kapelleMoshed;
 var linachtalMoshed;
-// var tanneMoshed
-
-// var brendVisual;
-// var brendGif1;
-// var brendGif2
-// var brendGif3
-// var felsenGif;
-// var kapelleGif1;
-// var kapelleGif2;
-// var kapelleGif3;
-// var linachGif1;
-// var linachGif2;
 var tanneGif1;
 var tanneGif2;  
+var logo;
+var font;
 
 let stopAudio;
 let yPos = 0;
@@ -39,9 +29,7 @@ let linachPressed = false;
 let tannePressed = false;
 let eisPressed = false;
 
-/* var ampBreg;
-var volHistoryBreg = []; */
-var env;
+let startApplication = false
 
 function preload() {
   breg = loadSound("/soundsmp3/BREG_V2.mp3");
@@ -62,7 +50,8 @@ function preload() {
   // tanneMoshed = loadImage("/Edwin/tanne_moshed.gif");
   tanneGif1 = loadImage("/GIFS/Tanne1Cut.gif");
   // tanneGif2 = loadImage("/GIFS/Tanne2Cut.gif");
-
+  logo = loadImage("/logo.png")
+  font = loadFont("/OCRAEXT.TTF");
   // brendVisual = loadImage("Brend.png");
   // brendGif1 = loadImage("/GIFS/Brend1Cut.gif");
   // brendGif2 = loadImage("/GIFS/Brend2Cut.gif");
@@ -78,7 +67,7 @@ function preload() {
 
 function keyReleased() {
   switch (keyCode) {
-    case 32:
+    case 65:
       fadeAudio(breg);
       bregPressed = false;
       break;
@@ -106,7 +95,7 @@ function keyReleased() {
       fadeAudio(linach);
       linachPressed = false;
       break;
-    case 75:
+    case 83:
       fadeAudio(tanne);
       tannePressed = false;
       break;
@@ -118,9 +107,10 @@ function keyTyped() {
   console.log(keyCode);
 
   switch (keyCode) {
-    case 32:
+    case 65:
       playAudio(breg);
       bregPressed = true;
+      startApplication = true;
       break;
     // case 83:
     //   playAudio(brendArp);
@@ -129,29 +119,41 @@ function keyTyped() {
     case 68:
       playAudio(brendBass);
       brendPressed = true;
+      startApplication = true;
       break;
     case 70:
       playAudio(eis);
       eisPressed = true;
+      startApplication = true;
       break;
     case 71:
       playAudio(felsen);
       felsenPressed = true;
+      startApplication = true;
       break;
     case 72:
       playAudio(kapelle);
       kapellePressed = true;
+      startApplication = true;
       break;
     case 74:
       playAudio(linach);
       linachPressed = true;
+      startApplication = true;
       break;
-    case 75:
+    case 83:
       playAudio(tanne);
       tannePressed = true;
+      startApplication = true;
       break;
   }
 };
+
+// function startInteraction() {
+//   if(keyCode == 65 || keyCode == 68 || keyCode == 70 || keyCode == 71 || keyCode == 72 || keyCode == 74 || keyCode == 83) {
+//     startApplication = true;
+//   }
+// }
 
 function playAudio(_audio) {
   clearTimeout(stopAudio);
@@ -166,18 +168,24 @@ function fadeAudio(_audio) {
 }
 
 function setup() {
-  //createCanvas(640, 480);
   createCanvas(1280, 720);
-  //amp = new p5.Amplitude()
-}
-
-function drawImage(_image) {
-  // console.log("image drawn");
-  // image(_image, 10, 10);
+  textFont(font);
+  textAlign(CENTER, CENTER);
+  textSize(20);
+  
 }
 
 function draw() {
   background(0);
+  if (startApplication != true) {
+    //image(logo, 0, 0, 877, 110);
+    text("press 'a' 's' 'd' 'f' 'g' 'h' or 'j' to play", 600, 300)
+    fill(255, 255, 255);
+  } else if (startApplication == false) {
+    fill(0, 0, 0);
+  
+  }
+
   if (bregPressed == true) {
     image(bregMoshed, 0, 0, 1280, 720);
   }
