@@ -41,9 +41,9 @@ function preload() {
   linach = loadSound("/soundsmp3/LINACHTALSPERRE_V1.mp3");
   tanne = loadSound("/soundsmp3/TANNE_KICK_V1.mp3");
 
-  bregMoshed = loadImage("/Edwin/breg_moshed.gif");
-  brendMoshed = loadImage("/Edwin/brend_moshed.gif");
-  eisMoshed = loadImage("/Edwin/eis_moshed.gif");
+  bregMoshed = loadImage("Edwin/breg_moshed.gif");
+  brendMoshed = loadImage("Edwin/brend_moshed.gif");
+  eisMoshed = loadImage("Edwin/eis_moshed.gif");
   felsenMoshed = loadImage("/Edwin/felsen_moshed.gif");
   kapelleMoshed = loadImage("/Edwin/kapelle_moshed.gif");
   linachtalMoshed = loadImage("/Edwin/linachtalsperre_moshed.gif");
