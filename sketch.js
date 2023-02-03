@@ -32,11 +32,11 @@ let eisPressed = false;
 let startApplication = false
 
 function preload() {
-  breg = loadSound("/soundsmp3/BREG_V2.mp3");
+  breg = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/BREG_V2.mp3");
   //brendArp = loadSound("/soundsmp3/BREND_ARP_V1.wav");
-  brendBass = loadSound("/soundsmp3/BREND_BASS_V1.mp3");
-  eis = loadSound("EIS_V1.wav");
-  felsen = loadSound("/soundsmp3/FELSEN_SNARE_V1.mp3");
+  brendBass = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/BREND_BASS_V1.mp3");
+  eis = loadSound("P5js-Beat-of-Ubiquity/EIS_V1.wav");
+  felsen = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/FELSEN_SNARE_V1.mp3");
   kapelle = loadSound("/soundsmp3/KAPELLE_V1.mp3");
   linach = loadSound("/soundsmp3/LINACHTALSPERRE_V1.mp3");
   tanne = loadSound("/soundsmp3/TANNE_KICK_V1.mp3");
