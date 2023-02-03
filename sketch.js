@@ -33,36 +33,22 @@ let startApplication = false
 
 function preload() {
   breg = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/BREG_V2.mp3");
-  //brendArp = loadSound("/soundsmp3/BREND_ARP_V1.wav");
   brendBass = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/BREND_BASS_V1.mp3");
   eis = loadSound("P5js-Beat-of-Ubiquity/EIS_V1.wav");
   felsen = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/FELSEN_SNARE_V1.mp3");
-  kapelle = loadSound("/soundsmp3/KAPELLE_V1.mp3");
-  linach = loadSound("/soundsmp3/LINACHTALSPERRE_V1.mp3");
-  tanne = loadSound("/soundsmp3/TANNE_KICK_V1.mp3");
+  kapelle = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/KAPELLE_V1.mp3");
+  linach = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/LINACHTALSPERRE_V1.mp3");
+  tanne = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/TANNE_KICK_V1.mp3");
 
-  bregMoshed = loadImage("Edwin/breg_moshed.gif");
-  brendMoshed = loadImage("Edwin/brend_moshed.gif");
-  eisMoshed = loadImage("Edwin/eis_moshed.gif");
-  felsenMoshed = loadImage("/Edwin/felsen_moshed.gif");
-  kapelleMoshed = loadImage("/Edwin/kapelle_moshed.gif");
-  linachtalMoshed = loadImage("/Edwin/linachtalsperre_moshed.gif");
-  // tanneMoshed = loadImage("/Edwin/tanne_moshed.gif");
-  tanneGif1 = loadImage("/GIFS/Tanne1Cut.gif");
-  // tanneGif2 = loadImage("/GIFS/Tanne2Cut.gif");
-  logo = loadImage("/logo.png")
-  font = loadFont("/OCRAEXT.TTF");
-  // brendVisual = loadImage("Brend.png");
-  // brendGif1 = loadImage("/GIFS/Brend1Cut.gif");
-  // brendGif2 = loadImage("/GIFS/Brend2Cut.gif");
-  // brendGif3 = loadImage("/GIFS/Brend3Cut.gif");
-  // felsenGif = loadImage("/GIFS/Felsen3.gif");
-  // kapelleGif1 = loadImage("/GIFS/Kapelle1Cut.gif");
-  // kapelleGif2 = loadImage("/GIFS/Kapelle2Cut.gif")
-  // kapelleGif3 = loadImage("/GIFS/Kapelle3Cut.gif")
-  // kapelleGif3 = loadImage("/GIFS/Kapelle3Cut.gif");
-  // linachGif1 = loadImage("/GIFS/Linach1Cut.gif");
-  // linachGif2 = loadImage("/GIFS/Linach2Cut.gif");  
+  bregMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/breg_moshed.gif");
+  brendMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/brend_moshed.gif");
+  eisMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/eis_moshed.gif");
+  felsenMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/felsen_moshed.gif");
+  kapelleMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/kapelle_moshed.gif");
+  linachtalMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/linachtalsperre_moshed.gif");
+  tanneGif1 = loadImage("P5js-Beat-of-Ubiquity/GIFS/Tanne1Cut.gif");
+  logo = loadImage("P5js-Beat-of-Ubiquity/logo.png")
+  font = loadFont("P5js-Beat-of-Ubiquity/OCRAEXT.TTF");
 }
 
 function keyReleased() {
@@ -71,10 +57,6 @@ function keyReleased() {
       fadeAudio(breg);
       bregPressed = false;
       break;
-    // case 83:
-    //   fadeAudio(brendArp);
-    //   brendPressed = false;
-    //   break;
     case 68:
       fadeAudio(brendBass);
       brendPressed = false;
@@ -112,10 +94,6 @@ function keyTyped() {
       bregPressed = true;
       startApplication = true;
       break;
-    // case 83:
-    //   playAudio(brendArp);
-    //   brendPressed = true;
-    //   break;
     case 68:
       playAudio(brendBass);
       brendPressed = true;
@@ -149,12 +127,6 @@ function keyTyped() {
   }
 };
 
-// function startInteraction() {
-//   if(keyCode == 65 || keyCode == 68 || keyCode == 70 || keyCode == 71 || keyCode == 72 || keyCode == 74 || keyCode == 83) {
-//     startApplication = true;
-//   }
-// }
-
 function playAudio(_audio) {
   clearTimeout(stopAudio);
   _audio.stop();
@@ -172,7 +144,6 @@ function setup() {
   textFont(font);
   textAlign(CENTER, CENTER);
   textSize(20);
-  
 }
 
 function draw() {
@@ -214,6 +185,5 @@ function draw() {
   if (tannePressed == true) {
     image(tanneGif1, 0, 0, 1280, 720)
   }
-
 }
 
