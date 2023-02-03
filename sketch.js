@@ -28,27 +28,26 @@ let felsenPressed = false;
 let linachPressed = false;
 let tannePressed = false;
 let eisPressed = false;
-
 let startApplication = false
 
 function preload() {
-  breg = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/BREG_V2.mp3");
-  brendBass = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/BREND_BASS_V1.mp3");
-  eis = loadSound("P5js-Beat-of-Ubiquity/EIS_V1.wav");
-  felsen = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/FELSEN_SNARE_V1.mp3");
-  kapelle = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/KAPELLE_V1.mp3");
-  linach = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/LINACHTALSPERRE_V1.mp3");
-  tanne = loadSound("P5js-Beat-of-Ubiquity/soundsmp3/TANNE_KICK_V1.mp3");
+  breg = loadSound("soundsmp3/BREG_V2.mp3");
+  brendBass = loadSound("soundsmp3/BREND_BASS_V1.mp3");
+  eis = loadSound("EIS_V1.wav");
+  felsen = loadSound("soundsmp3/FELSEN_SNARE_V1.mp3");
+  kapelle = loadSound("soundsmp3/KAPELLE_V1.mp3");
+  linach = loadSound("soundsmp3/LINACHTALSPERRE_V1.mp3");
+  tanne = loadSound("soundsmp3/TANNE_KICK_V1.mp3");
 
-  bregMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/breg_moshed.gif");
-  brendMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/brend_moshed.gif");
-  eisMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/eis_moshed.gif");
-  felsenMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/felsen_moshed.gif");
-  kapelleMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/kapelle_moshed.gif");
-  linachtalMoshed = loadImage("P5js-Beat-of-Ubiquity/Edwin/linachtalsperre_moshed.gif");
-  tanneGif1 = loadImage("P5js-Beat-of-Ubiquity/GIFS/Tanne1Cut.gif");
-  logo = loadImage("P5js-Beat-of-Ubiquity/logo.png")
-  font = loadFont("P5js-Beat-of-Ubiquity/OCRAEXT.TTF");
+  bregMoshed = loadImage("Edwin/breg_moshed.gif");
+  brendMoshed = loadImage("Edwin/brend_moshed.gif");
+  eisMoshed = loadImage("Edwin/eis_moshed.gif");
+  felsenMoshed = loadImage("Edwin/felsen_moshed.gif");
+  kapelleMoshed = loadImage("Edwin/kapelle_moshed.gif");
+  linachtalMoshed = loadImage("Edwin/linachtalsperre_moshed.gif");
+  tanneGif1 = loadImage("GIFS/Tanne1Cut.gif");
+  logo = loadImage("logo.png")
+  font = loadFont("OCRAEXT.TTF");
 }
 
 function keyReleased() {
